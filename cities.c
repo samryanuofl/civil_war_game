@@ -1,14 +1,15 @@
 #include <stddef.h>
-#include <stdlib.h>
+#include <stdint.h>
 #include "cities.h"
 
-struct city_t louisville = {.city_name = "Louisville", .connections = {&nashville, &lexington, NULL}};
-struct city_t nashville = {.city_name = "Nashville", .connections = {&louisville, NULL}};
-struct city_t lexington = {.city_name = "Lexington", .connections = {&louisville, &cincinnati, NULL}};
-struct city_t cincinnati = {.city_name = "Cincinnati", .connections = {&louisville, &lexington, NULL}};
-
-struct city_t *create_city(char * city_name, struct city_t *connections[])
+bool city_is_adjacent(struct city_t *origin, struct city_t *destination)
 {
-    struct city_t *new_city = malloc(sizeof(struct city_t));
-    return new_city;
-};
+    uint32_t i = 0;
+    while(origin->connections[i] != NULL) {
+        if(origin->connections[i] == destination) {
+            return true;
+        }
+        i++;
+    }
+    return false;
+}

@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add option="-std=c99" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -31,6 +32,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="armies.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="armies.h" />
 		<Unit filename="cities.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -39,10 +44,11 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="tree.c">
+		<Unit filename="minunit.h" />
+		<Unit filename="test_cities.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="tree.h" />
+		<Unit filename="test_cities.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
